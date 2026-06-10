@@ -1,0 +1,9 @@
+sample_id,file_path,label,label_id,split
+000001,train/obj/benign/000001,benign,0,train
+000002,train/obj/malware/000002,malware,1,train
+000003,train/fixed/benign/000003,benign,0,train
+000004,train/fixed/malware/000004,malware,1,train
+000005,val/fixed/benign/000005,benign,0,val
+000006,val/fixed/malware/000006,malware,1,val
+000007,test/fixed/benign/000007,benign,0,test
+000008,test/fixed/malware/000008,malware,1,test

@@ -1,0 +1,26 @@
+pandas>=2.3.1
+numpy>=1.23,<2.0
+pikepdf>=9.1.2,<10.0
+requests>=2.31,<3.0
+tqdm>=4.66,<5.0
+scikit-learn>=1.4,<2.0
+matplotlib>=3.8,<4.0
+
+# PyTorch stack (select GPU wheels manually)
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Transformers + local inference
+transformers[torch]>=4.40,<5.0
+accelerate>=0.29,<1.0
+sentencepiece>=0.2.0,<0.3
+
+tensorboard>=2.20.0
+
+# LLM
+requests>=2.31.0            # openai-compatible backend
+openai>=1.0.0               # openai backend
+llama-cpp-python>=0.2.0     # llama-cpp backend
+
+

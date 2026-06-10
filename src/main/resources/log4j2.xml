@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<RollingFile name="LogServer" fileName="logs/server.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="LogClient" fileName="logs/client.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="LogApp" fileName="logs/app.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="LogWorkload" fileName="logs/workload.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="LogResponseTime" fileName="logs/response_time.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="50 MB" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<!-- avoid duplicated logs with additivity=false -->
+		<Logger name="io.netty" level="info" additivity="false">
+			<AppenderRef ref="LogServer" />
+		</Logger>
+		<!--
+		<Logger name="io.ep2p" level="debug" additivity="true">
+			<AppenderRef ref="LogApp" />
+		</Logger>
+		-->		
+		<Logger name="org.gbtc.storage.client" level="debug" additivity="true">
+			<AppenderRef ref="LogClient" />
+		</Logger>
+		<Logger name="org.gbtc.storage" level="debug" additivity="true">
+			<AppenderRef ref="LogApp" />
+		</Logger>
+		<Logger name="workload" level="debug" additivity="false">
+			<AppenderRef ref="LogWorkload" />
+		</Logger>
+		<Root level="debug">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

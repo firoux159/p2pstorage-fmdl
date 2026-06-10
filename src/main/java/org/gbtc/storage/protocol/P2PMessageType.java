@@ -1,0 +1,29 @@
+package org.gbtc.storage.protocol;
+
+import io.ep2p.kademlia.protocol.MessageType;
+
+public interface P2PMessageType extends MessageType {
+	
+    String NODE_STATUS = "NODE_STATUS";
+    String NODE_STATUS_RESULT = "NODE_STATUS_RESULT";
+    
+    String DHT_EXTERNAL_STORE = "DHT_EXTERNAL_STORE";
+    String DHT_EXTERNAL_STORE_RESULT = "DHT_EXTERNAL_STORE_RESULT";
+    
+    String DHT_EXTERNAL_NEXT_STORE = "DHT_EXTERNAL_NEXT_STORE";
+    String DHT_EXTERNAL_NEXT_STORE_RESULT = "DHT_EXTERNAL_NEXT_STORE_RESULT";
+    
+    String CLIENT_STORE_REQ = "CLIENT_STORE_REQ";
+    String CLIENT_STORE_RES = "CLIENT_STORE_RES";
+    
+    String CLIENT_RETRIEVE_REQ = "CLIENT_RETRIEVE_REQ";
+    String CLIENT_RETRIEVE_RES = "CLIENT_RETRIEVE_RES";
+    
+    String NODE_WORKLOAD = "NODE_WORKLOAD";
+    String NODE_WORKLOAD_RESULT = "NODE_WORKLOAD_RESULT";
+    String NODE_THROUGHPUT = "NODE_THROUGHPUT";
+    
+    String NODE_SHUTDOWN = "NODE_SHUTDOWN";
+    
+    //String DHT_NEXT_STORE = "DHT_NEXT_STORE";
+}

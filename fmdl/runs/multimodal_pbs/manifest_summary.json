@@ -1,0 +1,20 @@
+{
+  "chunk_type_counts": {
+    "fixed": 6,
+    "obj": 2
+  },
+  "label_counts": {
+    "benign": 4,
+    "malware": 4
+  },
+  "split_chunk_label_counts": {
+    "train|fixed|benign": 3,
+    "train|fixed|malware": 3,
+    "train|obj|benign": 1,
+    "train|obj|malware": 1
+  },
+  "split_counts": {
+    "train": 8
+  },
+  "total": 8
+}

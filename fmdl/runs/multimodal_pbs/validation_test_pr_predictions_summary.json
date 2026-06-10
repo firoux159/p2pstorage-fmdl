@@ -1,0 +1,49 @@
+{
+  "amp": true,
+  "batch_size": 16,
+  "checkpoint": "runs/multimodal_pbs/best_model.pt",
+  "counts": {
+    "test": {
+      "benign": 39,
+      "malware": 13,
+      "total": 52
+    },
+    "validation": {
+      "benign": 36,
+      "malware": 12,
+      "total": 48
+    }
+  },
+  "data_root": "dataset",
+  "device": "cuda",
+  "epoch": 17,
+  "epoch_label": "epoch 17",
+  "fixed_only": true,
+  "manifest_csv": "dataset/manifest.csv",
+  "note": "This is sample only, not real model predictions. This is to show complete structure of this file",
+  "num_workers": 4,
+  "predictions_csv": "runs/multimodal_pbs/validation_test_pr_predictions.csv",
+  "run_dir": "runs/multimodal_pbs",
+  "splits": {
+    "test": {
+      "average_precision": 0.7662588386272595,
+      "max_malware_probability": 0.880557,
+      "mean_malware_probability": 0.3627072884615385,
+      "min_malware_probability": 0.001,
+      "n": 52,
+      "negatives": 39,
+      "positive_rate": 0.25,
+      "positives": 13
+    },
+    "validation": {
+      "average_precision": 0.8980230417730417,
+      "max_malware_probability": 0.871537,
+      "mean_malware_probability": 0.3569443958333333,
+      "min_malware_probability": 0.001227,
+      "n": 48,
+      "negatives": 36,
+      "positive_rate": 0.25,
+      "positives": 12
+    }
+  }
+}
